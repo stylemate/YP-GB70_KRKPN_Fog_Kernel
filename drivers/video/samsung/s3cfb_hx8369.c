@@ -37,7 +37,7 @@
 
 // Brightness Level 
 #define DIM_BL					20
-#define MIN_BL					30
+#define MIN_BL					20
 #define MAX_BL					255
 
 #define MAX_GAMMA_VALUE	24 // Venturi_?

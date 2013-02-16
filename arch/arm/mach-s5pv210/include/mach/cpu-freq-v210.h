@@ -15,24 +15,29 @@
 #include <linux/cpufreq.h>
 
 /*
- * APLL M,P,S value for target frequency
- **/
-#define APLL_VAL_1664	((1<<31)|(417<<16)|(3<<8)|(0))
-#define APLL_VAL_1332	((1<<31)|(444<<16)|(4<<8)|(0))
-#define APLL_VAL_1200	((1<<31)|(150<<16)|(3<<8)|(1))
-#define APLL_VAL_1000	((1<<31)|(125<<16)|(3<<8)|(1))
-#define APLL_VAL_800	((1<<31)|(100<<16)|(3<<8)|(1))
+* APLL M,P,S value for target frequency
+**/
+#define APLL_VAL_1664 ((1<<31)|(417<<16)|(3<<8)|(0))
+#define APLL_VAL_1520 ((1<<31)|(180<<16)|(3<<8)|(1))
+#define APLL_VAL_1332 ((1<<31)|(444<<16)|(4<<8)|(0))
+#define APLL_VAL_1320 ((1<<31)|(165<<16)|(3<<8)|(1))
+#define APLL_VAL_1200 ((1<<31)|(150<<16)|(3<<8)|(0))
+#define APLL_VAL_1096 ((1<<31)|(137<<16)|(3<<8)|(1))
+#define APLL_VAL_1000 ((1<<31)|(125<<16)|(3<<8)|(0))
+#define APLL_VAL_800 ((1<<31)|(100<<16)|(3<<8)|(1))
 
 enum perf_level {
-	L0 = 0,	// 1GHz
-	L1,	// 800MHz
-	L2,	// 400MHz
-	L3,	// 200MHz
-	L4,	// 100MHz
-	MAX_PERF_LEVEL = L4,
+L0 = 0,  // 1.52GHz
+L1,
+L2,  
+L3,	
+L4,	
+L5,	
+L6,	
+MAX_PERF_LEVEL = L6,
 };
 #ifdef CONFIG_MACH_VENTURI
-#define SLEEP_FREQ      (1000 * 1000) /* Use 1GHz when entering sleep */
+#define SLEEP_FREQ (1096 * 1000) /* Use 1GHz when entering sleep */
 #else
 #define SLEEP_FREQ      (800 * 1000) /* Use 800MHz when entering sleep */
 #endif

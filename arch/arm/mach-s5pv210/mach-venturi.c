@@ -339,14 +339,14 @@ static struct s3cfb_lcd hx8369 = {
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_MFC1 (32768 * SZ_1K)
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_FIMD (4800 * SZ_1K)
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_JPEG (8192 * SZ_1K)
-#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_PMEM (8192 * SZ_1K)
+#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_PMEM (0 * SZ_1K)
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_GPU1 (3300 * SZ_1K)
-#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_ADSP (6144 * SZ_1K)
+#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_ADSP (0 * SZ_1K)
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_TEXTSTREAM (3000 * SZ_1K)
 #else	// optimized settings, 19th Jan.2011
-#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_FIMC0 (12288 * SZ_1K)
-#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_FIMC1 (9900 * SZ_1K)
-#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_FIMC2 (12288 * SZ_1K)
+#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_FIMC0 (5300 * SZ_1K)
+#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_FIMC1 (5300 * SZ_1K)
+#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_FIMC2 (6300 * SZ_1K)
 #if !defined(CONFIG_ARIES_NTT)   
 #if defined(CONFIG_VENTURI_KOR) // Usys_sadang KH23 support playing 1080p
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_MFC0 (36864 * SZ_1K)
@@ -360,10 +360,10 @@ static struct s3cfb_lcd hx8369 = {
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_MFC1 (36864 * SZ_1K)
 #endif
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_FIMD (3000 * SZ_1K)
-#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_JPEG (5012 * SZ_1K)
-#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_PMEM (5550 * SZ_1K)
+#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_JPEG (5800 * SZ_1K)
+#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_PMEM (0 * SZ_1K)
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_GPU1 (3300 * SZ_1K)
-#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_ADSP (1500 * SZ_1K)
+#define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_ADSP (0 * SZ_1K)
 #define  S5PV210_VIDEO_SAMSUNG_MEMSIZE_TEXTSTREAM (3000 * SZ_1K)
 #endif
 
@@ -418,28 +418,28 @@ static struct s5p_media_device aries_media_devs[] = {
 		.memsize = S5PV210_VIDEO_SAMSUNG_MEMSIZE_FIMD,
 		.paddr = 0,
 	},
+//	[7] = {
+//		.id = S5P_MDEV_PMEM,
+//		.name = "pmem",
+//		.bank = 0,
+//		.memsize = S5PV210_VIDEO_SAMSUNG_MEMSIZE_PMEM,
+//		.paddr = 0,
+//	},
 	[7] = {
-		.id = S5P_MDEV_PMEM,
-		.name = "pmem",
-		.bank = 0,
-		.memsize = S5PV210_VIDEO_SAMSUNG_MEMSIZE_PMEM,
-		.paddr = 0,
-	},
-	[8] = {
 		.id = S5P_MDEV_PMEM_GPU1,
 		.name = "pmem_gpu1",
 		.bank = 0,
 		.memsize = S5PV210_VIDEO_SAMSUNG_MEMSIZE_GPU1,
 		.paddr = 0,
 	},	
-	[9] = {
-		.id = S5P_MDEV_PMEM_ADSP,
-		.name = "pmem_adsp",
-		.bank = 0,
-		.memsize = S5PV210_VIDEO_SAMSUNG_MEMSIZE_ADSP,
-		.paddr = 0,
-	},		
-	[10] = {
+//	[9] = {
+//		.id = S5P_MDEV_PMEM_ADSP,
+//		.name = "pmem_adsp",
+//		.bank = 0,
+//		.memsize = S5PV210_VIDEO_SAMSUNG_MEMSIZE_ADSP,
+//		.paddr = 0,
+//	},		
+	[8] = {
 		.id = S5P_MDEV_TEXSTREAM,
 		.name = "s3c_bc",
 		.bank = 1,

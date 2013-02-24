@@ -889,7 +889,7 @@ void  get_message(struct work_struct * p)
 	if (num_of_touch > 0) {
 		if(touch_state_val == 0)
 		{
-			s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L1); // cpu high speed setting.
+			s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L3); // cpu high speed setting.
 			resume_dvfs_lock = false;
 			touch_state_val = 1;
 		}
@@ -900,7 +900,7 @@ void  get_message(struct work_struct * p)
 		// first touch pressed!
 		if(touch_state_val == 0)
 		{
-			s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L1); // cpu high speed setting.
+			s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L3); // cpu high speed setting.
 			resume_dvfs_lock = false;
 			touch_state_val = 1;
 		}
@@ -935,7 +935,7 @@ void  get_message(struct work_struct * p)
 #if TOUCH_DVFS_CONTROL
 			if(touch_state_val == 0)
 			{
-				s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L1); // cpu high speed setting.
+				s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L3); // cpu high speed setting.
 				resume_dvfs_lock = false;
 				touch_state_val = 1;
 			}
@@ -978,7 +978,7 @@ void  get_message(struct work_struct * p)
 #if TOUCH_DVFS_CONTROL
 			if(touch_state_val == 0)
 			{
-				s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L1); // cpu high speed setting.
+				s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L3); // cpu high speed setting.
 				resume_dvfs_lock = false;
 				touch_state_val = 1;
 			}
@@ -1016,7 +1016,7 @@ void  get_message(struct work_struct * p)
 #if TOUCH_DVFS_CONTROL
 			if(touch_state_val == 0)
 			{
-				s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L1); // cpu high speed setting.
+				s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L3); // cpu high speed setting.
 				resume_dvfs_lock = false;
 				touch_state_val = 1;
 			}
@@ -1678,7 +1678,7 @@ static int cytouch_early_suspend(struct early_suspend *h)
 
 #if TOUCH_DVFS_CONTROL
 	cancel_delayed_work_sync(&g_cytouch_dwork);
-	s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L0);
+	s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L2);
 	resume_dvfs_lock = true;
 #endif
 
@@ -1749,7 +1749,7 @@ static int cytouch_late_resume(struct early_suspend *h)
 	CYTSPDBG("\n[TSP][%s] \n",__func__);
 
 #if 0 /* TOUCH_DVFS_CONTROL */
-	s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L0);
+	s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L2);
 	resume_dvfs_lock = true;
 	if (!delayed_work_pending(&g_cytouch_dwork))
 		schedule_delayed_work(&g_cytouch_dwork, msecs_to_jiffies(5000));
